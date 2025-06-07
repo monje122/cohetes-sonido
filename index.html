@@ -1,13 +1,24 @@
-<audio id="audio" autoplay muted>
-  <source src="pirotecnia.mp3" type="audio/mpeg">
-</audio>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sonido de Cohetes</title>
+</head>
+<body style="background-color: black; display: flex; justify-content: center; align-items: center; height: 100vh;">
 
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('audio');
-    audio.muted = false; // Intenta quitar el silencio
-    audio.play().catch(err => {
-      console.warn('Reproducción bloqueada por el navegador:', err);
+  <audio id="audio" autoplay>
+    <source src="pirotecnia.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      const audio = document.getElementById('audio');
+      audio.play().catch(e => {
+        console.warn('El navegador bloqueó la reproducción automática:', e);
+      });
     });
-  });
-</script>
+  </script>
+
+</body>
+</html>
