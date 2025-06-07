@@ -1,12 +1,13 @@
-<button onclick="iniciarSonido()">Entrar</button>
-
-<audio id="audio">
+<audio id="audio" autoplay muted>
   <source src="pirotecnia.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-function iniciarSonido() {
-  const audio = document.getElementById('audio');
-  audio.play();
-}
+  window.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('audio');
+    audio.muted = false; // Intenta quitar el silencio
+    audio.play().catch(err => {
+      console.warn('Reproducción bloqueada por el navegador:', err);
+    });
+  });
 </script>
